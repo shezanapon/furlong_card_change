@@ -21,6 +21,13 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Quiz from "./Quiz";
 import SideBar from "./SideBar";
 import HistoryPage from "../HistoryPage";
+import EngagementConditions from "./EngagementConditions";
+import DutyOfCare from "./DutyOfCare";
+import CodeOfConduct from "./CodeOfConduct";
+import SuitabilityForWork from "./SuitabilityForWork";
+import FatigueManagement from "./FatigueManagement";
+import Bullying from "./Bullying";
+import Incident from "./Incident";
 
 const lineStyle = {
   marginLeft: ".5rem",
@@ -47,6 +54,14 @@ export default function Main() {
     setOpen2(!open2);
   };
   const [history, setHistory] = React.useState(false);
+  const [engage, setEngage] = React.useState(false);
+  const [duty, setDuty] = React.useState(true);
+  const [conduct, setConduct] = React.useState(true);
+  const [work, setWork] = React.useState(true);
+  const [fatigue, setFatigue] = React.useState(true);
+  const [bully, setBully] = React.useState(true);
+  const [incident, setIncident] = React.useState(true);
+  const [quiz, setQuiz] = React.useState(true);
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -107,7 +122,8 @@ export default function Main() {
         {/* <Toolbar /> */}
 
         <Divider />
-        <SideBar history={history} setHistory={setHistory} />
+        <SideBar history={history} setHistory={setHistory}  setEngage={setEngage} setQuiz={setQuiz} setDuty={setDuty} setConduct={setConduct}
+        setWork={setWork} setFatigue={setFatigue} setBully={setBully} setIncident={setIncident}/>
       </Drawer>
 
       <Box
@@ -119,7 +135,18 @@ export default function Main() {
             "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
         }}
       >
-        {history ? <HistoryPage /> : <Quiz />}
+      
+        {history && <HistoryPage /> }
+        {engage && <EngagementConditions/> }
+        {duty && <DutyOfCare/> }
+        {conduct && <CodeOfConduct/> }
+        {work && <SuitabilityForWork/>}
+        {fatigue && <FatigueManagement/> }
+        {bully && <Bullying/> }
+        {incident && <Incident/>}
+        {quiz && <Quiz/>}
+
+        
       </Box>
     </Box>
   );

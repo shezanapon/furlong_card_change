@@ -48,13 +48,120 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   padding: theme.spacing(2),
 }));
 
-export default function SideBar({ history, setHistory }) {
+export default function SideBar({
+  setHistory,
+  setEngage,
+  setQuiz,
+  setDuty,
+  setConduct,
+  setWork,
+  setFatigue,
+  setBully,
+  setIncident,
+}) {
   const [expanded, setExpanded] = React.useState("panel1");
 
   const handleHistory = () => {
     setHistory(true);
-    setChange(true);
+    setEngage(false);
+    setQuiz(false);
+    setDuty(false);
+    setConduct(false);
+    setWork(false);
+    setFatigue(false);
+    setBully(false);
+    setIncident(false);
   };
+  const handleEngage = () => {
+    setEngage(true);
+    setHistory(false);
+    setQuiz(false);
+    setDuty(false);
+    setConduct(false);
+    setWork(false);
+    setFatigue(false);
+    setBully(false);
+    setIncident(false);
+  };
+  const handleQuiz=()=>{
+    setEngage(false);
+    setHistory(false);
+    setQuiz(true);
+    setDuty(false);
+    setConduct(false);
+    setWork(false);
+    setFatigue(false);
+    setBully(false);
+    setIncident(false);
+  };
+  const handleDuty = () => {
+    setEngage(false);
+    setHistory(false);
+    setQuiz(false);
+    setDuty(true);
+    setConduct(false);
+    setWork(false);
+    setFatigue(false);
+    setBully(false);
+    setIncident(false);
+  };
+  const handleConduct = () => {
+    setEngage(false);
+    setHistory(false);
+    setQuiz(false);
+    setDuty(false);
+    setConduct(true);
+    setWork(false);
+    setFatigue(false);
+    setBully(false);
+    setIncident(false);
+  };
+  const handleWork = () => {
+    setEngage(false);
+    setHistory(false);
+    setQuiz(false);
+    setDuty(false);
+    setConduct(false);
+    setWork(true);
+    setFatigue(false);
+    setBully(false);
+    setIncident(false);
+  };
+  const handleFatigue = () => {
+    setEngage(false);
+    setHistory(false);
+    setQuiz(false);
+    setDuty(false);
+    setConduct(false);
+    setWork(false);
+    setFatigue(true);
+    setBully(false);
+    setIncident(false);
+  };
+  const handleBully = () => {
+    setEngage(false);
+    setHistory(false);
+    setQuiz(false);
+    setDuty(false);
+    setConduct(false);
+    setWork(false);
+    setFatigue(false);
+    setBully(true);
+    setIncident(false);
+  };
+  const handleIncident = () => {
+    setEngage(false);
+    setHistory(false);
+    setQuiz(false);
+    setDuty(false);
+    setConduct(false);
+    setWork(false);
+    setFatigue(false);
+    setBully(false);
+    setIncident(true);
+  };
+ 
+
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
@@ -154,7 +261,14 @@ export default function SideBar({ history, setHistory }) {
             }}
           >
             <FeedIcon />
-            <p style={lineStyle}>Conditions of Engagement</p>
+            <p
+              onClick={(e) => handleEngage()}
+              style={lineStyle}
+              className="pointer"
+              color={change ? "rgb(41, 28, 182)" : "red"}
+            >
+              Conditions of Engagement
+            </p>
             <MoreVertIcon sx={{ ml: "auto" }} />
           </li>
           <li
@@ -165,7 +279,13 @@ export default function SideBar({ history, setHistory }) {
             }}
           >
             <FeedIcon />
-            <p style={lineStyle}>Code of Conduct</p>
+            <p
+              onClick={(e) => handleConduct()}
+              style={lineStyle}
+              className="pointer"
+            >
+              Code of Conduct
+            </p>
             <MoreVertIcon sx={{ ml: "auto" }} />
           </li>
           <li
@@ -176,7 +296,13 @@ export default function SideBar({ history, setHistory }) {
             }}
           >
             <FeedIcon />
-            <p style={lineStyle}>Duty of Care</p>
+            <p
+              onClick={(e) => handleDuty()}
+              style={lineStyle}
+              className="pointer"
+            >
+              Duty of Care
+            </p>
             <MoreVertIcon sx={{ ml: "auto" }} />
           </li>
           <li
@@ -187,7 +313,13 @@ export default function SideBar({ history, setHistory }) {
             }}
           >
             <FeedIcon />
-            <p style={lineStyle}>Suitability for Work</p>
+            <p
+              onClick={(e) => handleWork()}
+              style={lineStyle}
+              className="pointer"
+            >
+              Suitability for Work
+            </p>
             <MoreVertIcon sx={{ ml: "auto" }} />
           </li>
           <li
@@ -198,7 +330,13 @@ export default function SideBar({ history, setHistory }) {
             }}
           >
             <FeedIcon />
-            <p style={lineStyle}>Fatigue Management</p>
+            <p
+              onClick={(e) => handleFatigue()}
+              style={lineStyle}
+              className="pointer"
+            >
+              Fatigue Management
+            </p>
             <MoreVertIcon sx={{ ml: "auto" }} />
           </li>
           <li
@@ -209,7 +347,13 @@ export default function SideBar({ history, setHistory }) {
             }}
           >
             <FeedIcon />
-            <p style={lineStyle}>Bullying and Harassment</p>
+            <p
+              onClick={(e) => handleBully()}
+              style={lineStyle}
+              className="pointer"
+            >
+              Bullying and Harassment
+            </p>
             <MoreVertIcon sx={{ ml: "auto" }} />
           </li>
           <li
@@ -220,7 +364,13 @@ export default function SideBar({ history, setHistory }) {
             }}
           >
             <FeedIcon />
-            <p style={lineStyle}>Incident Reporting</p>
+            <p
+              onClick={(e) => handleIncident()}
+              style={lineStyle}
+              className="pointer"
+            >
+              Incident Reporting
+            </p>
             <MoreVertIcon sx={{ ml: "auto" }} />
           </li>
           <li
@@ -231,7 +381,9 @@ export default function SideBar({ history, setHistory }) {
             }}
           >
             <FeedIcon />
-            <p style={lineStyle}>QUIZ : Module 1</p>
+            <p onClick={(e) => handleQuiz()}
+              style={lineStyle}
+              className="pointer">QUIZ : Module 1</p>
             <MoreVertIcon sx={{ ml: "auto" }} />
           </li>
         </AccordionDetails>
@@ -242,7 +394,7 @@ export default function SideBar({ history, setHistory }) {
       >
         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
           <Typography sx={{ fontWeight: "bold" }}>
-            Module 1 - Human Resources
+          Module 2 – Workplace Health, Safety and Wellbeing
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -254,7 +406,7 @@ export default function SideBar({ history, setHistory }) {
             }}
           >
             <FeedIcon />
-            <p style={lineStyle}>Conditions of Engagement</p>
+            <p style={lineStyle}>On-Site Works Process</p>
             <MoreVertIcon sx={{ ml: "auto" }} />
           </li>
           <li
@@ -265,7 +417,7 @@ export default function SideBar({ history, setHistory }) {
             }}
           >
             <FeedIcon />
-            <p style={lineStyle}>Code of Conduct</p>
+            <p style={lineStyle}>Safe Work Method Statement</p>
             <MoreVertIcon sx={{ ml: "auto" }} />
           </li>
           <li
@@ -276,7 +428,7 @@ export default function SideBar({ history, setHistory }) {
             }}
           >
             <FeedIcon />
-            <p style={lineStyle}>Duty of Care</p>
+            <p style={lineStyle}>Stop Work</p>
             <MoreVertIcon sx={{ ml: "auto" }} />
           </li>
           <li
@@ -287,7 +439,7 @@ export default function SideBar({ history, setHistory }) {
             }}
           >
             <FeedIcon />
-            <p style={lineStyle}>Suitability for Work</p>
+            <p style={lineStyle}>Personal Protective Equipment</p>
             <MoreVertIcon sx={{ ml: "auto" }} />
           </li>
           <li
@@ -298,7 +450,7 @@ export default function SideBar({ history, setHistory }) {
             }}
           >
             <FeedIcon />
-            <p style={lineStyle}>Fatigue Management</p>
+            <p style={lineStyle}>Manual Handling</p>
             <MoreVertIcon sx={{ ml: "auto" }} />
           </li>
           <li
@@ -309,7 +461,7 @@ export default function SideBar({ history, setHistory }) {
             }}
           >
             <FeedIcon />
-            <p style={lineStyle}>Bullying and Harassment</p>
+            <p style={lineStyle}>Working at Heights</p>
             <MoreVertIcon sx={{ ml: "auto" }} />
           </li>
           <li
@@ -320,7 +472,7 @@ export default function SideBar({ history, setHistory }) {
             }}
           >
             <FeedIcon />
-            <p style={lineStyle}>Incident Reporting</p>
+            <p style={lineStyle}>Electrical</p>
             <MoreVertIcon sx={{ ml: "auto" }} />
           </li>
           <li
@@ -331,7 +483,151 @@ export default function SideBar({ history, setHistory }) {
             }}
           >
             <FeedIcon />
-            <p style={lineStyle}>QUIZ : Module 1</p>
+            <p style={lineStyle}>Confined Spaces</p>
+            <MoreVertIcon sx={{ ml: "auto" }} />
+          </li><li
+            style={{
+              display: "flex",
+              paddingBottom: "14px",
+              fontSize: "16px",
+            }}
+          >
+            <FeedIcon />
+            <p style={lineStyle}>Housekeeping- Slips, Trips and Falls</p>
+            <MoreVertIcon sx={{ ml: "auto" }} />
+          </li>
+          <li
+            style={{
+              display: "flex",
+              paddingBottom: "14px",
+              fontSize: "16px",
+            }}
+          >
+            <FeedIcon />
+            <p style={lineStyle}>Driver Safety</p>
+            <MoreVertIcon sx={{ ml: "auto" }} />
+          </li>
+          <li
+            style={{
+              display: "flex",
+              paddingBottom: "14px",
+              fontSize: "16px",
+            }}
+          >
+            <FeedIcon />
+            <p style={lineStyle}>QUIZ : Module 2</p>
+            <MoreVertIcon sx={{ ml: "auto" }} />
+          </li>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        expanded={expanded === "panel4"}
+        onChange={handleChange("panel4")}
+      >
+        <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
+          <Typography sx={{ fontWeight: "bold" }}>
+          Module 3 – Dangerous / Hazardous Goods
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <li
+            style={{
+              display: "flex",
+              paddingBottom: "14px",
+              fontSize: "16px",
+            }}
+          >
+            <FeedIcon />
+            <p style={lineStyle}>Dangerous / Hazardous Goods</p>
+            <MoreVertIcon sx={{ ml: "auto" }} />
+          </li>
+          <li
+            style={{
+              display: "flex",
+              paddingBottom: "14px",
+              fontSize: "16px",
+            }}
+          >
+            <FeedIcon />
+            <p style={lineStyle}>Lead</p>
+            <MoreVertIcon sx={{ ml: "auto" }} />
+          </li>
+          <li
+            style={{
+              display: "flex",
+              paddingBottom: "14px",
+              fontSize: "16px",
+            }}
+          >
+            <FeedIcon />
+            <p style={lineStyle}>Asbestos</p>
+            <MoreVertIcon sx={{ ml: "auto" }} />
+          </li>
+          <li
+            style={{
+              display: "flex",
+              paddingBottom: "14px",
+              fontSize: "16px",
+            }}
+          >
+            <FeedIcon />
+            <p style={lineStyle}>QUIZ : Module 3</p>
+            <MoreVertIcon sx={{ ml: "auto" }} />
+          </li>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        expanded={expanded === "panel5"}
+        onChange={handleChange("panel5")}
+      >
+        <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
+          <Typography sx={{ fontWeight: "bold" }}>
+          Module 4 – Environmental          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <li
+            style={{
+              display: "flex",
+              paddingBottom: "14px",
+              fontSize: "16px",
+            }}
+          >
+            <FeedIcon />
+            <p style={lineStyle}>Company Environment Objective</p>
+            <MoreVertIcon sx={{ ml: "auto" }} />
+          </li>
+          <li
+            style={{
+              display: "flex",
+              paddingBottom: "14px",
+              fontSize: "16px",
+            }}
+          >
+            <FeedIcon />
+            <p style={lineStyle}>Waste Management</p>
+            <MoreVertIcon sx={{ ml: "auto" }} />
+          </li>
+        
+          <li
+            style={{
+              display: "flex",
+              paddingBottom: "14px",
+              fontSize: "16px",
+            }}
+          >
+            <FeedIcon />
+            <p style={lineStyle}>QUIZ : Module 4</p>
+            <MoreVertIcon sx={{ ml: "auto" }} />
+          </li>
+          <li
+            style={{
+              display: "flex",
+              paddingBottom: "14px",
+              fontSize: "16px",
+            }}
+          >
+            <FeedIcon />
+            <p style={lineStyle}>Acceptance</p>
             <MoreVertIcon sx={{ ml: "auto" }} />
           </li>
         </AccordionDetails>

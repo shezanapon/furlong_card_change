@@ -14,4 +14,7 @@
 }
 .pointer {
   cursor: pointer;
+  p:hover {
+    color:purple;
+  }
 }
